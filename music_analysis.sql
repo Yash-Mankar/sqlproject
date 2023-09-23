@@ -44,7 +44,7 @@ ORDER BY total_spending DESC;
 -- Q1: Write query to return the email, first name, last name, & Genre of all Rock Music listeners. 
 -- Return your list ordered alphabetically by email starting with A.
 
--- Method 1 
+
 
 SELECT DISTINCT TOP (100) PERCENT c.email, c.first_name, c.last_name, g.name AS Genre
 FROM customer c
@@ -115,7 +115,7 @@ ORDER BY amount_spent DESC;
 
 -- Steps to Solve:  There are two parts in question- first most popular music genre and second need data at country level. 
 
--- Method 1: Using CTE 
+
 
 WITH GenrePopularity AS (
     SELECT c.country, g.name AS genre_name, COUNT(il.quantity) AS purchase_count,
@@ -150,7 +150,7 @@ WHERE gp.RowNo > 1
 -- Steps to Solve:  Similar to the above question. There are two parts in question- 
 -- first find the most spent on music for each country and second filter the data for respective customers. 
 
--- Method 1: using CTE
+
 
 WITH CustomerSpending AS (
     SELECT c.customer_id, c.first_name, c.last_name, c.country, SUM(i.total) AS total_spent,
